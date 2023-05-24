@@ -4,19 +4,18 @@ pipeline{
 	
 	stages{
 		// 1.GIT Repository에서 개발자에 의해 Push된 소스를 가져온다.
-		stage('SCM Update From GITHUB'){
-			steps{
-				git url: 'https://github.com/youmahil/HelloWorld.git', branch: 'master'
-			}
-		}
+		//stage('SCM Update From GITHUB'){
+		//	steps{
+		//		git url: 'https://github.com/youmahil/HelloWorld.git', branch: 'master'
+		//	}
+		//}
 		
 		
-		// 2.가져온 소스를 Gradle로 빌드한다.
+		// 2.가져온 소스를 Gradle로 빌드한다.  //sh "./gradlew clean"
        stage('Gradle Build Java Source') {
            steps {
                 sh "chmod 700 gradlew"
-                sh "./gradlew clean"
-                sh "./gradlew bootJar"
+                sh "./gradlew bootJar --parallel --continue"
             }
         }
 	
