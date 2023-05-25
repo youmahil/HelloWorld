@@ -24,8 +24,8 @@ pipeline{
             steps {
             	withDockerRegistry([credentialsId: "Yaong-Docker-Credentials", url: "https://index.docker.io/v1/"]) {
 	            	sh '''
-	            	docker build -t yaongdocker/yaong-hello-world:0.1.0 .
-	              docker push yaongdocker/yaong-hello-world:0.1.0 
+	            	docker build -t yaongdocker/yaong-hello-world:0.1.1 .
+	              docker push yaongdocker/yaong-hello-world:0.1.1 
 	                '''
                 }
             }
